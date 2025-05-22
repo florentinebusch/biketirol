@@ -77,10 +77,14 @@ pulldown.onchange = function(evt) {
 var controlElevation = L.control.elevation({
     theme: "bike-tirol",
     time: false,
-    elevationDiv: "#profile", 
-    //slope: true,
+    elevationDiv: "#profile",
+    height: 300, 
+    slope: true,
 }).addTo(map);
 controlElevation.load("data/etappe22.gpx");
 
-
-
+// Leaflet Minimap Plugin initialisieren
+var gktirol = new L.TileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png");
+var miniMap = new L.Control.MiniMap(gktirol, {
+    toggleDisplay: true
+}).addTo(map); 
