@@ -83,8 +83,11 @@ var controlElevation = L.control.elevation({
 }).addTo(map);
 controlElevation.load("data/etappe22.gpx");
 
-// Leaflet Minimap Plugin initialisieren
+// Leaflet Minimap Plugin initialisieren, gk = Grundkarte 
 var gktirol = new L.TileLayer("https://wmts.kartetirol.at/gdi_summer/{z}/{x}/{y}.png");
 var miniMap = new L.Control.MiniMap(gktirol, {
-    toggleDisplay: true
+    toggleDisplay: true,
 }).addTo(map); 
+
+// Leaplet Plugin für Fullscreen
+map.addControl(new L.Control.Fullscreen());
